@@ -1,0 +1,30 @@
+---
+title: "Pharmacy Markdown"
+output: html_document
+author: Cathy Do
+date: "March 26th,2024"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Health Trends and Pharmacy Functions
+This library provides functions that will help analyze data from different health fields and how it relates to pharmaceutical trends       
+
+#### Importing your data
+Install the package and then load the package before importing your health data  
+>import.packages("PharmaHealth")
+
+#### Plotting your data
+*This is where I am going to put more functions available to manipulate data*    
+
+#### Popular Drugs and their Intended Use
+Drug Name | Intended Use
+----------|--------------
+Humalog   | Insulin
+Metformin | Diabetes
+Mounjaro  | Insulin
+Lisinopril| Blood Pressure
+Xanas     | Anxiety
+
+#### More to come
