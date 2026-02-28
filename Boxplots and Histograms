@@ -1,0 +1,29 @@
+#Given this data set I did two different methods
+> freq <- c(0.6,0.3,0.4,0.4,0.2,0.6,0.3,0.4,0.9,0.2)
+> bloodp <- c(103,87,32,42,59,109,78,205,135,176)
+> first <- c(1,1,1,1,0,0,0,0,NA,1)
+> second <- c(0,0,1,1,0,0,1,1,1,1)
+> finaldecision <- c(0,1,0,1,0,1,0,1,1,1)
+#I performed a data frame and an analysis to figure out which I liked better
+#In a matrix I transformed it into a data frame
+hospital.data <- cbind(Frequency, BP, First, Second, Final.Decision)
+#Then I created a box plot with side by side data
+boxplot(hospital.data)
+#Create individual histograms for the hospital.data
+hist(hospital.data$Frequency)
+hist(hospital.data$BP)
+hist(hospital.data$First)
+hist(hospital.data$Second)
+hist(hospital.data$Final.Decision)
+
+#In analysis, I did a similar route where I created a boxplot first
+boxplot(freq, bloodp, first, second, finaldecision,
+main= "Hospital Data"
+ylab= "Number of Patients")
+#I then created histograms individually for each one
+hist(freq)
+hist(bloodp)
+hist(second)
+hist(finaldecision)
+
+#I don't like how the boxplots can only show one value at a time. 
