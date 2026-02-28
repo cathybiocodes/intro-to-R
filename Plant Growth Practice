@@ -1,0 +1,123 @@
+>data("PlantGrowth")
+>head(PlantGrowth)
+weight group
+1   4.17  ctrl
+2   5.58  ctrl
+3   5.18  ctrl
+4   6.11  ctrl
+5   4.50  ctrl
+6   4.61  ctrl
+>list(PlantGrowth)
+weight group
+1    4.17  ctrl
+2    5.58  ctrl
+3    5.18  ctrl
+4    6.11  ctrl
+5    4.50  ctrl
+6    4.61  ctrl
+7    5.17  ctrl
+8    4.53  ctrl
+9    5.33  ctrl
+10   5.14  ctrl
+11   4.81  trt1
+12   4.17  trt1
+13   4.41  trt1
+14   3.59  trt1
+15   5.87  trt1
+16   3.83  trt1
+17   6.03  trt1
+18   4.89  trt1
+19   4.32  trt1
+20   4.69  trt1
+21   6.31  trt2
+22   5.12  trt2
+23   5.54  trt2
+24   5.50  trt2
+25   5.37  trt2
+26   5.29  trt2
+27   4.92  trt2
+28   6.15  trt2
+29   5.80  trt2
+30   5.26  trt2
+
+> list(PlantGrowth,6)
+[[1]]
+   weight group
+1    4.17  ctrl
+2    5.58  ctrl
+3    5.18  ctrl
+4    6.11  ctrl
+5    4.50  ctrl
+6    4.61  ctrl
+7    5.17  ctrl
+8    4.53  ctrl
+9    5.33  ctrl
+10   5.14  ctrl
+11   4.81  trt1
+12   4.17  trt1
+13   4.41  trt1
+14   3.59  trt1
+15   5.87  trt1
+16   3.83  trt1
+17   6.03  trt1
+18   4.89  trt1
+19   4.32  trt1
+20   4.69  trt1
+21   6.31  trt2
+22   5.12  trt2
+23   5.54  trt2
+24   5.50  trt2
+25   5.37  trt2
+26   5.29  trt2
+27   4.92  trt2
+28   6.15  trt2
+29   5.80  trt2
+30   5.26  trt2
+#to determine if data set is S3 or S4, I installed the pryr library
+install.packages("pryr")
+#then i used the library to determine my dataset type
+library(pryr)
+>otype(PlantGrowth)
+S3
+>!isS4(PlantGrowth)
+TRUE
+#to determine if my data is an object
+>!is.object(PlantGrowth)
+FALSE
+#just to double check myself
+>typeof(PlantGrowth)
+list
+
+
+#example of S3
+>studentbio <- list(name= "Harry Potter", age= 19, contact= "London")
+>class(studentbio) <-"StudentInfo"
+>studentbio
+$name
+[1] "Harry Potter"
+
+$age
+[1] 19
+
+$contact
+[1] "London"
+
+attr(,"class")
+[1] "StudentInfo"
+
+#example of S4
+>setClass("employee", slots=list(name="character", id="numeric", contact="character"))
+>obj <- new("employee",name="Steven", id=1002, contact="West Avenue")
+>obj
+An object of class "employee"
+Slot "name":
+[1] "Steven"
+
+Slot "id":
+[1] 1002
+
+Slot "contact":
+[1] "West Avenue"
+#to check if an object is S4
+>is.object(obj)
+TRUE
