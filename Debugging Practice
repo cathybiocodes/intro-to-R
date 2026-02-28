@@ -1,0 +1,36 @@
+#Given a code to debug with a deliberate bug
+1  tukey_multiple <- function(x) {
+2     outliers <- array(TRUE,dim=dim(x))
+3     for (j in 1:ncol(x))
+4      {
+5      outliers[,j] <- outliers[,j] && tukey.outlier(x[,j])
+6      }
+7  outlier.vec <- vector(length=nrow(x))
+8      for (i in 1:nrow(x))
+9      { outlier.vec[i] <- all(outliers[i,]) } return(outlier.vec) }
+  #Bug on Line 5 found
+5      outliers[,j] <- outliers[,j] && tukey.outlier(x[,j])
+  #Fixed mistake on Line 5, typo was not needed
+5      outliers[,j] <- outliers[,j] & tukey.outlier(x[,j])
+  #Bug on Lines 8 and 9 found
+8      for (i in 1:nrow(x))
+9      { outlier.vec[i] <- all(outliers[i,]) } return(outlier.vec) }
+  #Fixed mistake on line 8 and 9 by fixing the spacing
+8  for (i in 1:nrow(x)) { 
+9    outlier.vec[i] <- all(outliers[i, ])
+10  }
+11  return(outlier.vec) 
+12 }
+#With this change in the code, the new code ends up being the following
+tukey_multiple <- function(x) {
+2     outliers <- array(TRUE,dim=dim(x))
+3     for (j in 1:ncol(x))
+4      {
+5      outliers[,j] <- outliers[,j] & tukey.outlier(x[,j])
+6      }
+7  outlier.vec <- vector(length=nrow(x))
+8  for (i in 1:nrow(x)) { 
+9    outlier.vec[i] <- all(outliers[i, ])
+10  }
+11  return(outlier.vec) 
+12 }
