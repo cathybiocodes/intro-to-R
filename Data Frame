@@ -1,0 +1,29 @@
+#In this assignment I was given the data as shown below
+> Name <- c("Jeb", “Donald”, "Ted”, “Marco” “Carly”, “Hillary”, “Berine”)
+> ABC political poll results <- c(4, 62 51, 21, 2, 14, 15)
+> CBS political poll results <- c(12, 75, 43, 19, 1, 21, 19) 
+
+#However I used a data frame code to input my data into
+data.frame(Name=c("Jeb","Donald","Ted","Marco","Carly","Hillary","Bernie"),ABC=c("4","62","51","21","2","14","15"),CBS=c("12","75","43","19","1","24","19"))
+
+#This gives the result below, which is aesthetically pleasing
+Name ABC CBS
+1     Jeb   4  12
+2  Donald  62  75
+3     Ted  51  43
+4   Marco  21  19
+5   Carly   2   1
+6 Hillary  14  24
+7  Bernie  15  19
+
+#If i were to include the full name of the data results, it would appear with periods like below:
+Name ABC.Political.Poll.Result CBS.Political.Poll.Result
+1     Jeb                         4                        12
+2  Donald                        62                        75
+3     Ted                        51                        43
+4   Marco                        21                        19
+5   Carly                         2                         1
+6 Hillary                        14                        24
+7  Bernie                        15                        19
+
+#I don't know about others but I prefer the short and simple data
