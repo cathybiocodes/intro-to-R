@@ -1,0 +1,14 @@
+#find and import a dataset of your choosing
+#install packages
+install.packages("ggplot2")
+install.packages("gcookbook")
+install.packages("dplyr")
+#plot a basic graph of your chosen dataset
+#i chose data set Leinhardt
+plot(Leinhardt)
+#plot a lattice graph with the chosen dataset
+xyplot(infant~income,data=Leinhardt)
+#use a ggplot2 to plot your data, i used a boxchart
+library(ggplot2)
+ggplot(Leinhardt, aes(x=oil, y=infant))+
++geom_col()
